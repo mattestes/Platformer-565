@@ -40,6 +40,11 @@ public class HeartDepletion : MonoBehaviour
                 heart2 = false;
             }
         }
+        if (Input.GetMouseButtonUp(1))
+        {
+            GameObject score = GameObject.FindGameObjectWithTag("Score");
+            score.GetComponent<Score>().addScore(10);
+        }
     }
 
 }
