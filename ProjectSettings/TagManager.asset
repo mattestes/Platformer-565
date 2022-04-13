@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - Heart1
   - Heart2
+  - Score
   layers:
   - Default
   - TransparentFX
