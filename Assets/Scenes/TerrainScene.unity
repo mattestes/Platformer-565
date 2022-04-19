@@ -327,59 +327,592 @@ MonoBehaviour:
   treeTypes:
   - enabled: 1
     name: OptimizedTree 1
-    seed: 0
-    probability: 10
-    collisionCheck: 0
-    rejectUnderwater: 0
-    heightRange: {x: 0, y: 1000}
+    seed: 43625
+    probability: 18.9
+    collisionCheck: 1
+    rejectUnderwater: 1
+    heightRange: {x: 100, y: 1000}
     slopeRange: {x: 0, y: 60}
     curvatureRange: {x: 0, y: 1}
-    layerMasks: []
-    instanceCount: 576
+    layerMasks:
+    - name: Snow layer
+      layerID: 2
+      threshold: 0
+    - name: Sand Layer
+      layerID: 4
+      threshold: 0
+    instanceCount: 13
     prefabs:
     - index: 0
       probability: 100
       prefab: {fileID: 2733384704598725532, guid: 83fae63a442054befb9bb3a94591c413, type: 3}
-    distance: 5
+    distance: 7.3
     scaleRange: {x: 0.8, y: 1.2}
     sinkAmount: 0
   - enabled: 1
     name: Tree
     seed: 52514
-    probability: 10
+    probability: 25.1
     collisionCheck: 1
-    rejectUnderwater: 0
-    heightRange: {x: 0, y: 1000}
+    rejectUnderwater: 1
+    heightRange: {x: 100, y: 1000}
     slopeRange: {x: 16.263157, y: 90}
     curvatureRange: {x: 0, y: 1}
-    layerMasks: []
-    instanceCount: 356
+    layerMasks:
+    - name: grass layer
+      layerID: 0
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 576
     prefabs:
     - index: 1
       probability: 100
       prefab: {fileID: 8562220009280910761, guid: 33eafb1be70914710ab9939e7880d3fd, type: 3}
     distance: 5
     scaleRange: {x: 0.8, y: 1.2}
-    sinkAmount: 0.183
+    sinkAmount: 0.339
   - enabled: 1
     name: Tree 1
     seed: 45124
-    probability: 10
+    probability: 18.4
     collisionCheck: 1
     rejectUnderwater: 1
-    heightRange: {x: 67.79661, y: 209.03955}
-    slopeRange: {x: 0, y: 59.999996}
+    heightRange: {x: 94, y: 864.40674}
+    slopeRange: {x: 0, y: 58.983047}
     curvatureRange: {x: 0, y: 1}
-    layerMasks: []
-    instanceCount: 575
+    layerMasks:
+    - name: Snow layer
+      layerID: 2
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 746
     prefabs:
     - index: 2
       probability: 100
       prefab: {fileID: 6979372546924331258, guid: abdd52da06fc441bc9603bf9d5b75bbb, type: 3}
     distance: 5
-    scaleRange: {x: 0.6418079, y: 1.5502825}
+    scaleRange: {x: 0.13333333, y: 1.9118644}
     sinkAmount: 0.346
-  grassPrefabs: []
+  - enabled: 1
+    name: Fir_Tree
+    seed: 0
+    probability: 42.6
+    collisionCheck: 1
+    rejectUnderwater: 1
+    heightRange: {x: 110, y: 500}
+    slopeRange: {x: 0, y: 86.44068}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    - name: Dirt layer
+      layerID: 2
+      threshold: 0
+    - name: Snow layer
+      layerID: 1
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 1029
+    prefabs:
+    - index: 3
+      probability: 100
+      prefab: {fileID: 100000, guid: d7ad634caa1c049d49b730cc6d29c683, type: 3}
+    distance: 3.6
+    scaleRange: {x: 0.8, y: 2}
+    sinkAmount: 0
+  - enabled: 1
+    name: Oak_Tree
+    seed: 0
+    probability: 47.4
+    collisionCheck: 1
+    rejectUnderwater: 1
+    heightRange: {x: 110, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: Dirt layer
+      layerID: 2
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    instanceCount: 439
+    prefabs:
+    - index: 4
+      probability: 100
+      prefab: {fileID: 100000, guid: 6d58037af810b4021ac921a71033e575, type: 3}
+    distance: 5
+    scaleRange: {x: 0.4813559, y: 2}
+    sinkAmount: 0
+  - enabled: 1
+    name: Poplar_Tree
+    seed: 0
+    probability: 50.2
+    collisionCheck: 1
+    rejectUnderwater: 1
+    heightRange: {x: 110, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    - name: Dirt layer
+      layerID: 2
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 472
+    prefabs:
+    - index: 5
+      probability: 100
+      prefab: {fileID: 100000, guid: 186ad8f063dbf430da4d56ebc0cb14e0, type: 3}
+    distance: 5
+    scaleRange: {x: 0.8, y: 2}
+    sinkAmount: 0
+  - enabled: 1
+    name: Palm_Tree
+    seed: 85348
+    probability: 100
+    collisionCheck: 1
+    rejectUnderwater: 0
+    heightRange: {x: 100, y: 209.09604}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: Sand Layer
+      layerID: 4
+      threshold: 0
+    instanceCount: 50
+    prefabs:
+    - index: 6
+      probability: 100
+      prefab: {fileID: 100000, guid: 1e50ef3048667495d90210b70c070c6b, type: 3}
+    distance: 6.1
+    scaleRange: {x: 0.8, y: 2}
+    sinkAmount: 0.18
+  grassPrefabs:
+  - enabled: 1
+    name: Bush 7
+    seed: 3097
+    probability: 25
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 100}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: grass layer
+      layerID: 0
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 201883
+    index: 0
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: 58b6100b4b1965642a0130a34bdcd1c2, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Bush 6
+    seed: 9592
+    probability: 56.9
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 100, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: grass layer
+      layerID: 0
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 400513
+    index: 1
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: 9441c1d70a7b1ad45adbf887f14ec1e9, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Bush 1
+    seed: 3242
+    probability: 25
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    instanceCount: 202556
+    index: 2
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: 021e2ef4de3b13e4b85e10d230b9a52c, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Bush 5
+    seed: 8773
+    probability: 25
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 201719
+    index: 3
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: 1d0acc09e270a62458265b3ebddd4ebd, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Bush 4
+    seed: 233
+    probability: 25
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    - name: Dirt layer
+      layerID: 2
+      threshold: 0
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    instanceCount: 202534
+    index: 4
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: 05da3951b3b9a8344b2f353d88539ce1, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Flower 1
+    seed: 3484
+    probability: 25
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: Dirt layer
+      layerID: 2
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    instanceCount: 203055
+    index: 5
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: ca1b8b30820fdf14c81f582b27bdf19b, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Flower 16
+    seed: 7509
+    probability: 12.3
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    - name: Dirt layer
+      layerID: 2
+      threshold: 0
+    instanceCount: 99894
+    index: 6
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: 6d1b799698b4a13428f342e85a6eafa9, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Grass Flower 2
+    seed: 5084
+    probability: 25
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    - name: Dirt layer
+      layerID: 2
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 201853
+    index: 7
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: a281a39b029389a43b000a1de1b88be0, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Grass Flower 9
+    seed: 8022
+    probability: 9.9
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    - name: Dirt layer
+      layerID: 2
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 81434
+    index: 8
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: be71e7916ae7b0e4faf4d22ccf62ad24, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Flower 31
+    seed: 5334
+    probability: 10.4
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 85.932205}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: rock layer
+      layerID: 0
+      threshold: 0
+    - name: Dirt layer
+      layerID: 2
+      threshold: 0
+    - name: Grass Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 90886
+    index: 9
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: d4a4c5b26333338439fd3b78cfb701ec, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Grass Flower 4
+    seed: 1669
+    probability: 22.7
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: Sand Layer
+      layerID: 3
+      threshold: 0
+    - name: Snow layer
+      layerID: 2
+      threshold: 0
+    instanceCount: 183886
+    index: 10
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: 95836ce2bec877a4a8e8669de12ee50a, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Grass 1
+    seed: 7574
+    probability: 16.5
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: Snow layer
+      layerID: 2
+      threshold: 0
+    - name: Sand Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 134251
+    index: 11
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: b6559fab08767a844869a6c1d9f49f1e, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Grass 2
+    seed: 5024
+    probability: 18.4
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: Snow layer
+      layerID: 2
+      threshold: 0
+    - name: Sand Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 149872
+    index: 12
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: 62ccf45c509ff1946ad9fa10b558a01d, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
+  - enabled: 1
+    name: Grass 3
+    seed: 1817
+    probability: 21.3
+    collisionCheck: 0
+    rejectUnderwater: 1
+    heightRange: {x: 0, y: 1000}
+    slopeRange: {x: 0, y: 60}
+    curvatureRange: {x: 0, y: 1}
+    layerMasks:
+    - name: Snow layer
+      layerID: 2
+      threshold: 0
+    - name: Sand Layer
+      layerID: 3
+      threshold: 0
+    instanceCount: 173917
+    index: 13
+    type: 1
+    renderAsBillboard: 0
+    prefab: {fileID: 0}
+    billboard: {fileID: 2800000, guid: db18f1e4d61f8cc439e35dfd023b6d3e, type: 3}
+    mainColor: {r: 0.2692482, g: 0.6603774, b: 0, a: 1}
+    secondaryColor: {r: 0.2457143, g: 0.6037736, b: 0, a: 1}
+    linkColors: 0
+    minMaxHeight: {x: 0.5, y: 1}
+    minMaxWidth: {x: 0.8, y: 1.2}
+    noiseSize: 0.1
   terrainSettings:
     drawTreesAndFoliage: 1
     perservePrefabLayer: 1
