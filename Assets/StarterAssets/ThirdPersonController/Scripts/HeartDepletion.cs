@@ -5,46 +5,55 @@ using UnityEngine.UI;
 
 public class HeartDepletion : MonoBehaviour
 {
-    bool heart1;
-    bool heart2;
 
+    public GameObject heartSprite;
+    public int heartCount = 3;
+    List<GameObject> hearts = new List<GameObject>();
 
     void Start()
     {
-        heart1 = true;
-        heart2 = true;
-        GameObject heart = GameObject.FindGameObjectWithTag("Heart1");
-        Image image = heart.GetComponent<Image>();
-        image.enabled = true;
-        heart = GameObject.FindGameObjectWithTag("Heart2");
-        image = heart.GetComponent<Image>();
-        image.enabled = true;
+
+        for (int i = 0; i < heartCount; i++)
+        {
+            GameObject newHeart = Instantiate(heartSprite, new Vector3(75 + 125 * i, transform.position.y, 0), Quaternion.identity);
+            newHeart.transform.parent = this.transform;
+            hearts.Add(newHeart);
+        }
+
     }
 
     void Update()
     {
+
         if (Input.GetMouseButtonUp(0))
         {
-            if (heart1)
-            {
-                GameObject heart = GameObject.FindGameObjectWithTag("Heart1");
-                Image image = heart.GetComponent<Image>();
-                image.enabled = false;
-                heart1 = false;
-            }
-            else
-            {
-                GameObject heart = GameObject.FindGameObjectWithTag("Heart2");
-                Image image = heart.GetComponent<Image>();
-                image.enabled = false;
-                heart2 = false;
-            }
+            removeHeart();
         }
+        /*
         if (Input.GetMouseButtonUp(1))
         {
-            GameObject score = GameObject.FindGameObjectWithTag("Score");
-            score.GetComponent<Score>().addScore(10);
+            addHeart();
         }
+        */
+
+        }
+
+    public void removeHeart()
+    {
+        if(heartCount > 0)
+        {
+            heartCount--;
+            Destroy(hearts[heartCount]);
+            hearts.RemoveAt(heartCount);
+        }
+    }
+
+    public void addHeart()
+    {
+        GameObject newHeart = Instantiate(heartSprite, new Vector3(75 + 125 * heartCount, transform.position.y, 0), Quaternion.identity);
+        newHeart.transform.parent = this.transform;
+        hearts.Add(newHeart);
+        heartCount++;
     }
 
 }
