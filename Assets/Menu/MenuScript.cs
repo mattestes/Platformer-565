@@ -17,9 +17,9 @@ public class MenuScript : MonoBehaviour
         
     }
 
-    public void LoadScene()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene("Playground");
+        SceneManager.LoadScene(sceneName);
     }
 
 }
