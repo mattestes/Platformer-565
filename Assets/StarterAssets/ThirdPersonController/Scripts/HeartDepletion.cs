@@ -24,19 +24,20 @@ public class HeartDepletion : MonoBehaviour
 
     void Update()
     {
-
+        /*
         if (Input.GetMouseButtonUp(0))
         {
             removeHeart();
         }
-        /*
+        
+        
         if (Input.GetMouseButtonUp(1))
         {
             addHeart();
         }
         */
 
-        }
+    }
 
     public void removeHeart()
     {

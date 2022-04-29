@@ -1,77 +1,117 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBehavior : MonoBehaviour
+namespace UnityStandardAssets.Characters.ThirdPerson
 {
-    public NavMeshAgent agent;
-    public Transform player;
-    public LayerMask whatIsGround, whatIsPlayer;
-
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
-
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
-
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
-
-    public void Update()
+    public class EnemyBehavior : MonoBehaviour
     {
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        //playerInAttackRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        public NavMeshAgent agent;
+        public ThirdPersonCharacter character;
 
-        if (!playerInSightRange)
-            Patrolling();
-        if (playerInSightRange)
-            ChasePlayer();
+        public float triggerRange;
 
-    }
 
-    public void Awake()
-    {
-        player = GameObject.Find("PlayerArmature").transform;
-        agent = GetComponent<NavMeshAgent>();
-    }
-
-    public void Patrolling()
-    {
-        if (!walkPointSet)
-            SearchWalkPoint();
-        else
-            agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
-    }
-
-    public void SearchWalkPoint()
-    {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet = true;
-
-    }
-
-    public void ChasePlayer()
-    {
-        agent.SetDestination(player.position);
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-
-        if (collision.gameObject.name == "PlayerArmature")
+        public enum State
         {
-            GameObject heart = GameObject.FindGameObjectWithTag("Heart1");
-            heart.GetComponent<HeartDepletion>().removeHeart();
+            PATROL,
+            CHASE
+        }
+        public State state;
+        private bool alive;
+
+        //patrolling
+        public GameObject[] waypoints;
+        private int waypointInd;
+        public float patrolSpeed;
+
+        //chasing
+        public float chaseSpeed;
+        public GameObject target;
+
+        void Start()
+        {
+            agent = GetComponent<NavMeshAgent>();
+            character = GetComponent<ThirdPersonCharacter>();
+
+            agent.updatePosition = true;
+            agent.updateRotation = false;
+            waypointInd = 0;
+
+            state = EnemyBehavior.State.PATROL;
+            alive = true;
+
+            target = GameObject.FindGameObjectWithTag("Player");
+
+            StartCoroutine("FSM");
+        }
+
+        IEnumerator FSM()
+        {
+            while (alive)
+            {
+                switch (state)
+                {
+                    case State.PATROL:
+                        Patrol();
+                        break;
+                    case State.CHASE:
+                        Chase();
+                        break;
+                }
+                yield return null;
+            }
+        }
+
+        void Patrol()
+        {
+            agent.speed = patrolSpeed;
+            if (Vector3.Distance(this.transform.position, waypoints[waypointInd].transform.position) > 3)
+            {
+                agent.SetDestination(waypoints[waypointInd].transform.position);
+                character.Move(agent.desiredVelocity, false, false);
+            }
+            else if (Vector3.Distance(this.transform.position, waypoints[waypointInd].transform.position) <= 3)
+            {
+                waypointInd += 1;
+                if (waypointInd >= waypoints.Length)
+                {
+                    waypointInd = 0;
+                }
+            }
+            else
+            {
+                character.Move(Vector3.zero, false, false);
+            }
+        }
+
+        void Chase()
+        {
+            agent.speed = chaseSpeed;
+            agent.SetDestination(target.transform.position);
+            character.Move(agent.desiredVelocity, false, false);
+
+        }
+
+        void Update()
+        {
+            if(Vector3.Distance(this.transform.position, target.transform.position) <= triggerRange)
+            {
+                state = EnemyBehavior.State.CHASE;
+            }
+
+        }
+
+        public void OnCollisionEnter(Collision collision)
+        {
+
+            if (collision.gameObject.name == "PlayerArmature")
+            {
+                GameObject heart = GameObject.FindGameObjectWithTag("Heart1");
+                heart.GetComponent<HeartDepletion>().removeHeart();
+            }
         }
     }
 }
