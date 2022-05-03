@@ -12,7 +12,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public ThirdPersonCharacter character;
 
         public float triggerRange;
-
+        public float deathHeight;
 
         public enum State
         {
@@ -109,8 +109,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (collision.gameObject.name == "PlayerArmature")
             {
-                GameObject heart = GameObject.FindGameObjectWithTag("Heart1");
-                heart.GetComponent<HeartDepletion>().removeHeart();
+                GameObject player = collision.gameObject;
+                if(player.transform.position.y >= deathHeight)
+                {
+                    alive = false;
+                    GameObject score = GameObject.FindGameObjectWithTag("Score");
+                    score.GetComponent<Score>().addScore(100);
+                    Destroy(this.gameObject);
+                }
+                else
+                {
+                    GameObject heart = GameObject.FindGameObjectWithTag("Heart1");
+                    heart.GetComponent<HeartDepletion>().removeHeart();
+                }
             }
         }
     }

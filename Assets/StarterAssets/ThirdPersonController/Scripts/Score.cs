@@ -14,15 +14,6 @@ public class Score : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonUp(1))
-        {
-            //GameObject score = GameObject.FindGameObjectWithTag("Score");
-            //score.GetComponent<Score>().addScore(10);
-            addScore(10);
-        }
-    }
 
     public void addScore(int scoreToAdd)
     {
