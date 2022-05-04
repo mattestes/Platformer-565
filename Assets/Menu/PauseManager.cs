@@ -8,11 +8,12 @@ public class PauseManager : MonoBehaviour
 {
 
     public GameObject pausePanel;
+    public GameObject gameOverPanel;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -20,16 +21,21 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // makes the pause menu visible
-            pausePanel.SetActive(true);
-            // makes the cursor visible
-            Cursor.lockState = CursorLockMode.None;
-            // freezes the game, ie player movement and probably other stuff once we add it
-            Time.timeScale = 0;
+            Pause();
         }
     }
 
-    public void unpause()
+    public void Pause()
+    {
+        // makes the pause menu visible
+        pausePanel.SetActive(true);
+        // makes the cursor visible
+        Cursor.lockState = CursorLockMode.None;
+        // freezes the game, ie player movement and probably other stuff once we add it
+        Time.timeScale = 0;
+    }
+
+    public void Unpause()
     {
         // hides the pause menu again
         pausePanel.SetActive(false);
@@ -37,6 +43,15 @@ public class PauseManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         // unfreezes the game
         Time.timeScale = 1;
+    }
+
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+        // makes the cursor visible
+        Cursor.lockState = CursorLockMode.None;
+        // freezes the game, ie player movement and probably other stuff once we add it
+        Time.timeScale = 0;
     }
 
     public void LoadScene(string sceneName)

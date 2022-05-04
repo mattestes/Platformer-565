@@ -47,6 +47,11 @@ public class HeartDepletion : MonoBehaviour
             Destroy(hearts[heartCount]);
             hearts.RemoveAt(heartCount);
         }
+        if (heartCount == 0)
+        {
+            PauseManager pauseManager = this.gameObject.transform.parent.gameObject.GetComponent<PauseManager>();
+            pauseManager.GameOver();
+        }
     }
 
     public void addHeart()
