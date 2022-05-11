@@ -9,6 +9,7 @@ TagManager:
   - Heart1
   - Heart2
   - Score
+  - Terrain
   layers:
   - Default
   - TransparentFX
