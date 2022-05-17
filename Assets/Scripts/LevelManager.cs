@@ -48,7 +48,7 @@ public class LevelManager : MonoBehaviour
 
     public bool currentComplete()
     {
-        return levelComplete[currentLevel - 1] && currentLevel < levels.Length - 1;
+        return levelComplete[currentLevel - 1] && currentLevel < levels.Length;
     }
 
     // Update is called once per frame
