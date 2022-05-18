@@ -1,4 +1,4 @@
 # Platformer-565
-The starting menu scene is called Menu, and is located in Assets/Menu/ directory.
+The starting menu scene is called MainMenu, and is located in the Assets/Scenes/ directory.
 
-The other scene being used is called Playground, and is located in Assets/StarterAssets/ThirdPersonController/Scenes/
+The other scene being used, with the main game, is called Playground, and is also located in Assets/Scenes/
